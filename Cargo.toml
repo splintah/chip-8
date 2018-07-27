@@ -1,0 +1,14 @@
+[package]
+name = "chip-8"
+version = "0.1.0"
+authors = ["Splinter Suidman"]
+
+[lib]
+name = "chip_8"
+path = "./src/lib.rs"
+
+[dependencies]
+cgmath = "0.16"
+gl = "0.10"
+glutin = "0.17"
+rand = "0.5"
