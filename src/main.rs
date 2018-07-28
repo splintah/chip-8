@@ -1,11 +1,11 @@
-extern crate chip_8;
 extern crate glutin;
 
 mod graphics;
+pub mod lib;
 
-use chip_8::{Processor, HEIGHT, WIDTH};
+use self::graphics::Graphics;
+use self::lib::{Processor, HEIGHT, WIDTH};
 use glutin::GlContext;
-use graphics::Graphics;
 use std::fs::File;
 use std::io::prelude::*;
 

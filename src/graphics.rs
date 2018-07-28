@@ -1,13 +1,12 @@
 extern crate cgmath;
-extern crate chip_8;
 extern crate gl;
 extern crate glutin;
 
 use self::cgmath::prelude::*;
 use self::cgmath::{Matrix4, Vector3};
-use self::chip_8::{HEIGHT, WIDTH};
 use self::gl::types::*;
 use self::glutin::{GlContext, GlWindow};
+use super::{HEIGHT, WIDTH};
 use std::ffi::{CStr, CString};
 use std::mem;
 use std::os::raw::c_void;

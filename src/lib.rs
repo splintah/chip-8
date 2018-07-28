@@ -5,8 +5,8 @@
 
 extern crate rand;
 
-use rand::rngs::SmallRng;
-use rand::{FromEntropy, Rng};
+use self::rand::rngs::SmallRng;
+use self::rand::{FromEntropy, Rng};
 
 /// The width of a CHIP-8 display.
 pub const WIDTH: usize = 64;
