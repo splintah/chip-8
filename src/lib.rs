@@ -112,29 +112,35 @@ pub struct Processor {
 }
 
 impl Processor {
+    /// Create a new `Processor`.
     pub fn new() -> Processor {
         Processor::default()
     }
 
+    /// Create a new `Processor` and load `file` into memory.
     pub fn with_file(file: &[u8]) -> Processor {
         let mut processor = Processor::default();
         processor.load_file(file);
         processor
     }
 
+    /// Load `file` into memory.
     pub fn load_file(&mut self, file: &[u8]) {
         self.memory[0x200..0x200 + file.len()].copy_from_slice(&file);
     }
 
+    /// Set the state of a key.
     pub fn set_key(&mut self, key: usize, pressed: bool) {
         self.keypad[key] = pressed;
     }
 
+    /// Get the current `opcode`.
     pub fn opcode(&self) -> u16 {
         (self.memory[self.program_counter] as u16) << 8
             | self.memory[self.program_counter + 1] as u16
     }
 
+    /// Emulate a processor cycle.
     pub fn run_cycle(&mut self) -> Result<(), Error> {
         // V![$index] is the register at $index.
         macro_rules! V {
